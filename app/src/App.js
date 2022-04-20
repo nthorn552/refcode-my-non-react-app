@@ -1,8 +1,10 @@
-import logo from './logo.svg';
-import Button from 'react-bootstrap/Button'
-import './App.css';
+import logo from "./logo.svg";
+import Button from "react-bootstrap/Button";
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [buttonClickCount, updateButtonClickCount] = useState(0);
   return (
     <div className="App">
       <header className="App-header">
@@ -18,7 +20,13 @@ function App() {
         >
           Learn React
         </a>
-        <Button variant='primary'>I'm a react button</Button>
+        <Button
+          variant="primary"
+          onClick={() => updateButtonClickCount(buttonClickCount + 1)}
+        >
+          I'm a react button
+        </Button>
+        You've clicked this button {buttonClickCount} times
       </header>
     </div>
   );
